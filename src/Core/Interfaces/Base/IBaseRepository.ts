@@ -3,7 +3,7 @@ export interface IBaseRepository<T> {
     * Lấy danh sách đối tượng
     * CreatedBy VanND (05/09/2022)
     */
-    Get(): T
+    Get(): Promise<T[]> 
 
     /**
     * Lấy thông tin theo Id

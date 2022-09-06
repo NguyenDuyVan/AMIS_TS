@@ -13,19 +13,19 @@ export class BaseService<T> implements IBaseService<T> {
     * CreatedBy VanND (05/09/2022)
     */
     Insert(data: T): number {
-        this.isInsert = true;
-        var isValid = ValidateObject(entity);
-        if (isValid)
-        {
-            isInsert = false;
-            var entities = _baseRepository.Insert(entity);
-            return entities;
-        }
-        else
-        {
-            isInsert = false;
-            throw new Exception();
-        }
+        // this.isInsert = true;
+        // var isValid = ValidateObject(entity);
+        // if (isValid)
+        // {
+        //     isInsert = false;
+        //     var entities = _baseRepository.Insert(entity);
+        //     return entities;
+        // }
+        // else
+        // {
+        //     isInsert = false;
+        //     throw new Exception();
+        // }
         throw new Error("Method not implemented.");
     }
 
@@ -34,12 +34,10 @@ export class BaseService<T> implements IBaseService<T> {
         throw new Error("Method not implemented.");
     }
 
-    ValidateObject(entity : T) {
-        // Biến chứa thông tin lỗi validate
-        errorData = new Dictionary<string, string>();
-        var isValid = true;
-        //  1. Quét toàn bộ các property của đối tượng có đánh dấu vào validate chung: 
-        var properties = entity.GetType().GetProperties();
-    }
+    // ValidateObject(entity : T) {
+    //     var isValid = true;
+    //     //  1. Quét toàn bộ các property của đối tượng có đánh dấu vào validate chung: 
+    //     var properties = entity.GetType().GetProperties();
+    // }
 
 }
