@@ -3,14 +3,23 @@ export interface IBaseRepository<T> {
     * Lấy danh sách đối tượng
     * CreatedBy VanND (05/09/2022)
     */
-    Get(): Promise<T[]> 
+    Get(): Promise<T[]>
 
     /**
     * Lấy thông tin theo Id
     * @param entityId : id của đối tượng cần lấy
     * CreatedBy VanND (05/09/2022)
     */
-    GetById(entityId: string): T
+    GetById(entityId: string): Promise<T[]>
+
+    /**
+     * Lọc bản ghi theo text, số  trang, số bản ghi trên trang
+     * @param entityFilter Giá trị cần tìm kiếm
+     * @param pageSize Số bản ghi trên trang
+     * @param pageNumber Thứ tự trang
+     * CreatedBy Vannd (09/09/2022)
+     */
+    Filter(entityFilter: string, pageSize?: number, pageNumber?: number): Promise<T[] | T>
 
     /**
     * Thêm đối tượng mới
@@ -32,5 +41,5 @@ export interface IBaseRepository<T> {
     * @param entityId: id đối tượng cần xóa
     * CreatedBy VanND (05/09/2022)
     */
-    Delete(entityId : string) : number
+    Delete(entityId: string): number
 }

@@ -1,7 +1,7 @@
-import { DepartmentEntity } from "../Entities/DepartmentEntity";
+import { Department } from "../Entities/Department";
 import { IBaseRepository } from "./Base/IBaseRepository";
 
-export interface IDepartmentRepository extends IBaseRepository<DepartmentEntity> {
+export interface IDepartmentRepository extends IBaseRepository<Department> {
     /**
     * Check mã phòng ban có bị trùng không
     * @param departmentCode : Mã phòng ban

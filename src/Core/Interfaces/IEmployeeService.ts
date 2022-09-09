@@ -1,7 +1,7 @@
-import { EmployeeEntity } from "../Entities/EmployeesEntity";
+import { Employee } from "../Entities/Employee";
 import { IBaseService } from "./Base/IBaseService";
 
-export interface IEmployeeService extends IBaseService<EmployeeEntity> {
+export interface IEmployeeService extends IBaseService<Employee> {
     /**
     * Tìm kiếm thông tin nhân viên theo Mã hoặc Họ Tên
     * @param employeeFilter : Id nhân viên cần lấy dữ liệu
@@ -9,7 +9,7 @@ export interface IEmployeeService extends IBaseService<EmployeeEntity> {
     * @param pageNumber : Thứ tự trang
     * CreatedBy VanND (05/09/2022)
     */
-    GetPaging(employeeFilter: string, pageSize: number, pageNumber: number): EmployeeEntity[]
+    GetPaging(employeeFilter: string, pageSize: number, pageNumber: number): Employee[]
 
     /**
     * Xóa nhiều đối tượng theo Id

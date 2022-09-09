@@ -2,28 +2,16 @@ import { IBaseRepository } from "../../Core/Interfaces/Base/IBaseRepository";
 import { connection } from "../Connection/mysql/connection";
 
 export class BaseRepository<T> implements IBaseRepository<T> {
-    // /**
-    // * Lấy tên của generic type
-    // * @param value : giá trị khởi tạo
-    // * CreatedBy VanND (06/09/2022)
-    // */
-    // private tableName: string;
-    // constructor(value) {
-    //     this.tableName = value;
-    // }
-
-    /**
-    * Chuỗi kết nối
-    * CreatedBy VanND (06/09/2022)
-    */
-    protected ConnectionString: string = "Server=13.229.200.157;Database=MISA.WEB01.NDVAN;Uid=dev;Pwd=12345678;Character Set=utf8";
-
-    async Get(): Promise<T[]> {
-        const rows = connection.query('SELECT * FROM Employees') as any;
-        return rows;
-    }
-    GetById(entityId: string): T {
+    Filter(entityFilter: string, pageSize?: number | undefined, pageNumber?: number | undefined): Promise<T | T[]> {
         throw new Error("Method not implemented.");
+    }
+    async Get(): Promise<T[]> {
+        const [rows] = await (await connection).query('SELECT * FROM Employees');
+        return rows as T[];
+    }
+    async GetById(entityId: string): Promise<T[]> {
+        const [rows] = await (await connection).query(String(`SELECT * FROM Employees WHERE EmployeeId = "${entityId}"`));
+        return rows as T[];
     }
     Insert(data: T): T {
         throw new Error("Method not implemented.");

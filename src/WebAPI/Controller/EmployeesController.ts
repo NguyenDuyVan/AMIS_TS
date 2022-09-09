@@ -1,15 +1,9 @@
-import { Request, Response } from "express";
-import { EmployeesRepository } from "../../Infrastructure/Repository/EmployeesRepository";
-import express from 'express';
-
-export const employeesRouter = express.Router();
-
-const _employeesRepository = new EmployeesRepository()
-
-employeesRouter.get('/', async (req: Request, res: Response) => {
-    try {
-        res.status(200).json(_employeesRepository.Get())
-    } catch (error) {
-        res.send(error)
+import { Router } from "express";
+import { BaseController } from "./BaseController";
+import { BaseRepository } from "../../Infrastructure/Repository/BaseRepository";
+import { Employee } from "../../Core/Entities/Employee";
+export class EmployeesController extends BaseController<Employee>{
+    constructor() {
+        super(Employee);
     }
-})
+}

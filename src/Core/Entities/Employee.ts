@@ -7,7 +7,7 @@ enum Gender {
     Other = 2,
 }
 
-export class EmployeeEntity extends BaseEntity {
+export class Employee extends BaseEntity {
     /**
     * Id cuả nhân viên
     * CreatedBy VanND (05/09/2022)
@@ -54,7 +54,7 @@ export class EmployeeEntity extends BaseEntity {
     * Đặt gt cho genderName
     * CreatedBy VanND (05/09/2022)
     */
-    public get genderName() {
+    private get genderName() {
         switch (this.gender) {
             case 0:
                 return this._genderName = ResourceVn.gender.female

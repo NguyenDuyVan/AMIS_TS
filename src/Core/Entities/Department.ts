@@ -1,6 +1,6 @@
 import { BaseEntity } from "./BaseEntity";
 
-export class DepartmentEntity extends BaseEntity {
+export class Department extends BaseEntity {
     /**
     * Id đơn vị
     * CreatedBy VanND (05/09/2022)
