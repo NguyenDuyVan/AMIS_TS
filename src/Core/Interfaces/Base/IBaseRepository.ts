@@ -14,12 +14,12 @@ export interface IBaseRepository<T> {
 
     /**
      * Lọc bản ghi theo text, số  trang, số bản ghi trên trang
-     * @param entityFilter Giá trị cần tìm kiếm
+     * @param text Giá trị cần tìm kiếm
      * @param pageSize Số bản ghi trên trang
      * @param pageNumber Thứ tự trang
      * CreatedBy Vannd (09/09/2022)
      */
-    Filter(entityFilter: string, pageSize?: number, pageNumber?: number): Promise<T[] | T>
+    Filter(param: FilterParams): Promise<T[]>
 
     /**
     * Thêm đối tượng mới
@@ -42,4 +42,10 @@ export interface IBaseRepository<T> {
     * CreatedBy VanND (05/09/2022)
     */
     Delete(entityId: string): number
+}
+
+export interface FilterParams {
+    text: string
+    pageSize: number
+    pageNumber: number
 }
